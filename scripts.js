@@ -1,3 +1,5 @@
+// render images script
+
 const images = [
     './img/aperol_spritz.webp',
     './img/blue_lagoon.webp',
@@ -32,7 +34,7 @@ closeBtn.onclick = () => popup.close();
 
 render();
 
-
+// popup script
 
 let currentIndex = 0;
 
