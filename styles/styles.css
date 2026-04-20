@@ -33,6 +33,7 @@ footer {
 }
 
 h1 {
+    font-family: "Figtree", sans-serif;
     font-size: 56px;
     color: white;
     text-align: center;
@@ -63,12 +64,19 @@ h1 {
 
 .albumsection {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 24px;
 }
 
 .albumsection figure {
     margin: 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 15px;
+
+    box-shadow: 4px 4px 6px rgba(3, 7, 18, 0.07),
+        17px 14px 22px rgba(3, 7, 18, 0.13),
+        38px 32px 50px rgba(3, 7, 18, 0.20);
 }
 
 .albumsection img {
@@ -77,10 +85,6 @@ h1 {
     object-fit: cover;
     border-radius: 15px;
     border: 2px solid grey;
-
-    box-shadow: 4px 4px 6px rgba(3, 7, 18, 0.07),
-        17px 14px 22px rgba(3, 7, 18, 0.13),
-        38px 32px 50px rgba(3, 7, 18, 0.20);
 
     transition: transform 0.5s ease-in-out;
 }

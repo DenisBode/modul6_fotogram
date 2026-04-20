@@ -27,24 +27,15 @@ main {
 }
 
 h1 {
+    font-family: "Figtree", sans-serif;
     font-size: 56px;
     color: rgb(0, 0, 0);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 56px;
 }
 
-.albumsection {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-}
 
-.albumsection figure {
-    margin: 0;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 15px;
-}
+
 
 .albumsection img {
     width: 100%;
@@ -73,81 +64,85 @@ dialog {
     border-radius: 15px;
     background: white;
     overflow: hidden;
-}
+
+    -webkit-box-shadow: 0px 0px 79px 12px rgba(45, 255, 196, 0.7);
+    -moz-box-shadow: 0px 0px 79px 12px rgba(45, 255, 196, 0.7);
+    box-shadow: 0px 0px 79px 12px rgba(45, 255, 196, 0.7);
 
 
-dialog[open] {
-    animation: fadeIn 0.4s ease-out;
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -45%);
+    dialog[open] {
+        animation: fadeIn 0.4s ease-out;
     }
 
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
     }
-}
 
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-}
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    }
 
-.popup-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
+    .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-dialog img {
-    max-width: 100%;
-    max-height: 60vh;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-    display: block;
-}
+    dialog img {
+        max-width: 100%;
+        max-height: 60vh;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        display: block;
+    }
 
-.nav-bar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
 
-.nav-btn {
-    padding: 10px 20px;
-    border: none;
-    background: #f0f0f0;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
-}
+    .nav-btn {
+        padding: 10px 20px;
+        border: none;
+        background: #f0f0f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
 
-.nav-btn:hover {
-    background: #e0e0e0;
-}
+    .nav-btn:hover {
+        background: #e0e0e0;
+    }
 
-#closeBtn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: #eee;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: bold;
-    z-index: 10;
-}
+    #closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background: #eee;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 10;
+    }
 
-#closeBtn:hover {
-    background: #ddd;
-}
+    #closeBtn:hover {
+        background: #ddd;
+    }
