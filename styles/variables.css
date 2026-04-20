@@ -1,4 +1,4 @@
 :root {
-    --bg-color-light: #8bc0d7d4;
-    --header-bg-color-light: #00b8e6;
+    --bg-color-light: rgb(169, 221, 236);
+    --header-bg-color-light: rgb(169, 221, 236);
 }
