@@ -1,68 +1,104 @@
-// render images script
+// render function
 
 const images = [
-    './img/aperol_spritz.webp',
-    './img/blue_lagoon.webp',
-    './img/cuba_libre.webp',
-    './img/gin_tonic.webp',
-    './img/tequila_sunrise.webp',
-    './img/vodka_tonic.webp'
+    {
+        src: './img/aperol_spritz.webp',
+        alt: 'Aperol Spritz'
+    },
+    {
+        src: './img/blue_lagoon.webp',
+        alt: 'Blue Lagoon'
+    },
+    {
+        src: './img/cuba_libre.webp',
+        alt: 'Cuba Libre'
+    }
 ];
-
-const gallery = document.getElementById('gallery');
-const popup = document.querySelector('#imagePopup');
-const popupImg = document.querySelector('#popupImg');
-const closeBtn = document.querySelector('#closeBtn');
-
-function render() {
-    gallery.innerHTML = '';
-
-    images.forEach((url) => {
-        const fig = document.createElement('figure');
-        fig.innerHTML = `<img src="${url}" alt="Cocktail">`;
-
-        fig.onclick = () => {
-            popupImg.src = url;
-            popup.showModal();
-        };
-
-        gallery.appendChild(fig);
-    });
-}
-
-closeBtn.onclick = () => popup.close();
-
-render();
-
-// popup script
 
 let currentIndex = 0;
 
+const gallery = document.getElementById('gallery');
+const popup = document.getElementById('imagePopup');
+const popupImg = document.getElementById('popupImg');
+
 function render() {
-    gallery.innerHTML = '';
-    images.forEach((url, index) => {
-        const fig = document.createElement('figure');
-        fig.innerHTML = `<img src="${url}">`;
-        fig.onclick = () => {
-            currentIndex = index;
-            openPopup();
+    for (let i = 0; i < images.length; i++) {
+        let img = document.createElement('img');
+        img.src = images[i].src;
+        img.alt = images[i].alt;
+
+        console.log(images[i]);
+
+        img.onclick = function () {
+            currentIndex = i;
+            popupImg.src = images[i].src;
+            popupImg.alt = images[i].alt;
+            popup.showModal();
+            showAltText();
+            showCountImg();
         };
-        gallery.appendChild(fig);
-    });
+
+        gallery.appendChild(img);
+    }
 }
 
-function openPopup() {
-    popupImg.src = images[currentIndex];
-    popup.showModal();
+render();
+
+// function next <-> preview
+
+document.getElementById('nextBtn').onclick = function () {
+    currentIndex = currentIndex + 1;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    popupImg.src = images[currentIndex].src;
+    popupImg.alt = images[currentIndex].alt;
+    showAltText();
+};
+
+document.getElementById('prevBtn').onclick = function () {
+    currentIndex = currentIndex - 1;
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    popupImg.src = images[currentIndex].src;
+    popupImg.alt = images[currentIndex].alt;
+    showAltText();
+};
+
+
+
+// function name of img 
+
+function showAltText() {
+    let altText = popupImg.alt;
+    let output = document.getElementById('imgName');
+    output.innerHTML = altText;
 }
 
+// function close popup with x
 
-document.getElementById('nextBtn').onclick = () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    popupImg.src = images[currentIndex];
-};
+function closeDialog() {
+    document.getElementById('imagePopup').close();
+}
 
-document.getElementById('prevBtn').onclick = () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    popupImg.src = images[currentIndex];
-};
+//popup close with click outside popup
+
+popup.addEventListener('click', function (event) {
+    if (event.target === popup) {
+        popup.close();
+    }
+});
+
+// count images in array
+
+function showCountImg() {
+    let count = images.length;
+    console.log("Anzahl: ", count);
+
+    document.getElementById('indexImages').innerHTML = count;
+}
