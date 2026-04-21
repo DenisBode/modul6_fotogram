@@ -8,23 +8,10 @@
     scroll-behavior: smooth;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--header--bg-color-dark);
-    font-family: sans-serif;
-}
-
 main {
     flex: 1;
 }
 
-.galleryWrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
 
 h1 {
     font-family: "Figtree", sans-serif;
@@ -156,4 +143,9 @@ dialog {
     background-color: rgb(155, 156, 156);
     color: white;
 
+}
+
+.indexImages {
+    display: flex;
+    align-items: center;
 }
