@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-color-light);
+    font-family: "Figtree", sans-serif;
 }
 
 main {
@@ -33,7 +34,6 @@ footer {
 }
 
 h1 {
-    font-family: "Figtree", sans-serif;
     font-size: 56px;
     color: white;
     text-align: center;
