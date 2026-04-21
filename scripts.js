@@ -12,7 +12,35 @@ const images = [
     {
         src: './img/cuba_libre.webp',
         alt: 'Cuba Libre'
-    }
+    },
+    {
+        src: './img/gin_tonic.webp',
+        alt: 'Gin Tonic'
+    },
+    {
+        src: './img/mojito.webp',
+        alt: 'Mojito'
+    },
+    {
+        src: './img/negroni.webp',
+        alt: 'Negroni'
+    },
+    {
+        src: './img/tequila_sunrise.webp',
+        alt: 'Tequila Sunrise'
+    },
+    {
+        src: './img/vodka_tonic.webp',
+        alt: 'Vodka Tonic'
+    },
+    {
+        src: './img/whisky_sour.webp',
+        alt: 'Whisky Sour'
+    },
+    {
+        src: './img/white_russian.webp',
+        alt: 'White Russian'
+    },
 ];
 
 let currentIndex = 0;
@@ -84,6 +112,8 @@ function showAltText() {
 }
 
 // function close popup with x
+
+document.getElementById('closeBtn').onclick = closeDialog;
 
 function closeDialog() {
     document.getElementById('imagePopup').close();
