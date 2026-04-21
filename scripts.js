@@ -35,7 +35,8 @@ function render() {
             popupImg.alt = images[i].alt;
             popup.showModal();
             showAltText();
-            showCountImg();
+            // showCountImg();
+            showCountPositionImg();
         };
 
         gallery.appendChild(img);
@@ -56,6 +57,7 @@ document.getElementById('nextBtn').onclick = function () {
     popupImg.src = images[currentIndex].src;
     popupImg.alt = images[currentIndex].alt;
     showAltText();
+    showCountPositionImg();
 };
 
 document.getElementById('prevBtn').onclick = function () {
@@ -68,6 +70,7 @@ document.getElementById('prevBtn').onclick = function () {
     popupImg.src = images[currentIndex].src;
     popupImg.alt = images[currentIndex].alt;
     showAltText();
+    showCountPositionImg();
 };
 
 
@@ -96,9 +99,22 @@ popup.addEventListener('click', function (event) {
 
 // count images in array
 
-function showCountImg() {
-    let count = images.length;
-    console.log("Anzahl: ", count);
+// function showCountImg() {
+//     let count = images.length;
+//     console.log("Anzahl: ", count);
 
-    document.getElementById('indexImages').innerHTML = count;
+//     document.getElementById('indexImages').innerHTML = count;
+// }
+
+// count wich image in counted array
+
+function showCountPositionImg() {
+    let actualcount = currentIndex + 1;
+    let counting = images.length;
+    let output = actualcount + " / " + counting;
+
+    console.log("Position: ", output);
+
+    document.getElementById('indexImages').innerHTML = output;
+
 }
