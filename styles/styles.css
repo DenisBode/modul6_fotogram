@@ -14,7 +14,11 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-color);
+    /* overflow: hidden; */
+}
 
+html {
+    overflow-x: hidden;
 }
 
 main {
@@ -107,5 +111,11 @@ h1 {
 
     .navText {
         display: none;
+    }
+
+    .bottomBar {
+        transform: translateX(0);
+        border-radius: 0;
+        width: 100%;
     }
 }
