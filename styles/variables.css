@@ -1,6 +1,7 @@
 :root {
-    --bg-color-light: rgb(169, 221, 236);
-    --header-bg-color-light: rgb(169, 221, 236);
+    --bg-color: rgb(107, 107, 107);
+    --header-footer-bg-color: rgb(49, 53, 70);
 
-
+    --btn-color: #ddd;
+    --btn-color-hover: rgba(45, 255, 196, 0.9);
 }
