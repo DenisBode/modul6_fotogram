@@ -1,4 +1,5 @@
 @import "variables.css";
+@import "dialog.css";
 
 
 * {
@@ -98,5 +99,13 @@ h1 {
 @media (max-width: 600px) {
     .galleryWrapper h1 {
         font-size: 20px;
+    }
+
+    .dialog {
+        width: 99%;
+    }
+
+    .navText {
+        display: none;
     }
 }
