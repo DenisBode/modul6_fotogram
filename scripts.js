@@ -107,7 +107,11 @@ document.getElementById('prevBtn').onclick = function () {
 
 function showAltText() {
     let altText = popupImg.alt;
+    console.log(altText);
+
     let output = document.getElementById('imgName');
+    console.log(output);
+
     output.innerHTML = altText;
 }
 
@@ -147,4 +151,8 @@ function showCountPositionImg() {
 
     document.getElementById('indexImages').innerHTML = output;
 
+}
+
+function showCocktailDetails() {
+    let details = '';
 }
