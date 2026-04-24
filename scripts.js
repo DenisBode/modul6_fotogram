@@ -84,10 +84,8 @@ document.getElementById('prevBtn').onclick = function () {
 
 function showAltText() {
     let altText = popupImg.alt;
-    console.log(altText);
 
     let output = document.getElementById('imgName');
-    console.log(output);
 
     output.innerHTML = altText;
 }
@@ -115,15 +113,12 @@ function showCountPositionImg() {
     let counting = images.length;
     let output = actualcount + " / " + counting;
 
-    console.log("Position: ", output);
-
     document.getElementById('indexImages').innerHTML = output;
 }
 
 //new render function to render on time in html
 
 function htmlrender() {
-    console.log("Function htmlRender started");
 
     let container = document.getElementById('gallery');
     let html = '';
