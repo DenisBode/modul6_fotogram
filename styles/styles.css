@@ -138,6 +138,14 @@ h1 strong {
     align-items: center;
 }
 
+html:has(body.no-scroll) {
+    overflow: hidden;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
 
 @media (max-width: 600px) {
     h1 {
