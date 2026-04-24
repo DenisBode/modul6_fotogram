@@ -19,36 +19,40 @@
 
 <body>
     <header class="topNavBar">
-
-        <img src="./img/logo_text.png" alt="Fotogram Container Logo" class="logo">
+        <div class="container">
+            <img src="./img/logo_text.png" alt="Fotogram Container Logo" class="logo">
+        </div>
     </header>
-    <main>
-        <article class="galleryWrapper">
-            <header>
-                <h1><strong>My</strong> personal photo album</h1>
-            </header>
-            <section id="gallery" class="albumsection">
-            </section>
-            <dialog id="imagePopup">
-                <div id="imgName" class="imgName">Test</div>
-                <button id="closeBtn">X</button>
 
-                <div class="popup-content">
-                    <img id="popupImg" src="" alt="">
 
-                    <nav class="nav-bar">
-                        <button id="prevBtn" class="nav-btn"><span class="navText"> Zurück</span>❮</button>
-                        <div class="indexImages" id="indexImages"></div>
-                        <button id="nextBtn" class="nav-btn"><span class="navText">Weiter </span>❯</button>
-                    </nav>
-                </div>
-            </dialog>
-        </article>
+    <main class="container">
+        <h1><strong>My</strong> personal photo album</h1>
+
+        <section id="gallery" class="albumsection">
+        </section>
+
+        <dialog id="imagePopup">
+            <div id="imgName" class="imgName">Test</div>
+            <button id="closeBtn">X</button>
+            <div class="popup-content">
+                <img id="popupImg" src="" alt="">
+                <nav class="nav-bar">
+                    <button id="prevBtn" class="nav-btn"><span class="navText"> Zurück</span>❮</button>
+                    <div class="indexImages" id="indexImages"></div>
+                    <button id="nextBtn" class="nav-btn"><span class="navText">Weiter </span>❯</button>
+                </nav>
+            </div>
+        </dialog>
     </main>
+
     <footer class="bottomBar">
-        <img src="./img/DA_Footer_Logo.svg" alt="DeveloperAkademie Footer Logo">
+        <div class="container">
+            <img src="./img/DA_Footer_Logo.svg" alt="DeveloperAkademie Footer Logo">
+        </div>
     </footer>
+
     <script src="/scripts.js"></script>
 </body>
+
 
 </html>
