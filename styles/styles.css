@@ -1,6 +1,14 @@
 @import "variables.css";
 @import "dialog.css";
 
+@font-face {
+    font-family: 'Figtree';
+    src: url('../fonts/Figtree-VariableFont_wght.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 * {
     margin: 0;
