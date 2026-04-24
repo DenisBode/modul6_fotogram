@@ -32,10 +32,9 @@ main {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 64px;
     color: var(--text-color);
     margin: 0;
-    font-size: 72px;
     text-shadow: inherit;
     text-align: center;
 }
@@ -128,7 +127,7 @@ h1 strong {
 
 
 @media (max-width: 600px) {
-    .galleryWrapper h1 {
+    h1 {
         font-size: 20px;
     }
 
