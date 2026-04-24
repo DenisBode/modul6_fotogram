@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles/dialog.css">
 </head>
 
-<body>
+<body onload="init()">
     <header class="topNavBar">
         <div class="container">
             <img src="./img/logo_text.png" alt="Fotogram Container Logo" class="logo">
@@ -29,15 +29,23 @@
         <section id="gallery" class="albumsection">
         </section>
 
-        <dialog id="imagePopup">
+        <dialog id="imagePopup" onclick="handleDialogClick(event)">
             <div id="imgName" class="imgName">Test</div>
-            <button id="closeBtn">X</button>
+            <button onclick="closeDialog()" id="closeBtn">X</button>
             <div class="popup-content">
                 <img id="popupImg" src="" alt="">
                 <nav class="nav-bar">
-                    <button id="prevBtn" class="nav-btn"><span class="navText"> Zurück</span>❮</button>
+
+                    <button onclick="prevImage()" class="nav-btn">
+                        ❮ <span class="navText">Zurück</span>
+                    </button>
+
                     <div class="indexImages" id="indexImages"></div>
-                    <button id="nextBtn" class="nav-btn"><span class="navText">Weiter </span>❯</button>
+
+                    <button onclick="nextImage()" class="nav-btn">
+                        <span class="navText">Weiter </span>❯
+                    </button>
+
                 </nav>
             </div>
         </dialog>
@@ -49,7 +57,7 @@
         </div>
     </footer>
 
-    <script src="/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 
