@@ -1,3 +1,7 @@
+let popupImg;
+let gallery;
+let popup;
+
 // render function
 
 const images = [
@@ -45,14 +49,20 @@ const images = [
 
 let currentIndex = 0;
 
-const gallery = document.getElementById('gallery');
-const popup = document.getElementById('imagePopup');
-const popupImg = document.getElementById('popupImg')
+
+
+function init() {
+    gallery = document.getElementById('gallery');
+    popup = document.getElementById('imagePopup');
+    popupImg = document.getElementById('popupImg');
+
+    htmlRender();
+}
+
 
 // function next <-> preview
 
-document.getElementById('nextBtn').onclick = function () {
-
+function nextImage() {
     currentIndex = currentIndex + 1;
 
     if (currentIndex >= images.length) {
@@ -61,11 +71,12 @@ document.getElementById('nextBtn').onclick = function () {
 
     popupImg.src = images[currentIndex].src;
     popupImg.alt = images[currentIndex].alt;
+
     showAltText();
     showCountPositionImg();
-};
+}
 
-document.getElementById('prevBtn').onclick = function () {
+function prevImage() {
     currentIndex = currentIndex - 1;
 
     if (currentIndex < 0) {
@@ -90,21 +101,15 @@ function showAltText() {
     output.innerHTML = altText;
 }
 
-// function close popup with x
 
-function closeDialog() {
-    console.info("Clicked on x Btn in PopUp");
-    document.getElementById('imagePopup').close();
-}
 
 //popup close with click outside popup
 
-popup.addEventListener('click', function (event) {
-    if (event.target === popup) {
-        console.info("Clicked outside Popup");
-        popup.close();
+function handleDialogClick(event) {
+    if (event.target.id === 'imagePopup') {
+        closeDialog();
     }
-});
+}
 
 // count wich image in counted array
 
@@ -118,31 +123,43 @@ function showCountPositionImg() {
 
 //new render function to render on time in html
 
-function htmlrender() {
-
-    let container = document.getElementById('gallery');
-    let html = '';
-    for (let i = 0; i < images.length; i++) {
-        html += `
-    <div class="img-box">
-        <img src="${images[i].src}" 
-             alt="${images[i].alt}"
-             onclick="openDialog(${i})"
-             onkeydown="handleKeyPress(event, ${i})"
-             tabindex="0">
-    </div>
-`;
-    }
-    container.innerHTML = html;
+function getImageTemplate(i) {
+    return `
+        <div class="img-box">
+            <img src="${images[i].src}" 
+                 alt="${images[i].alt}"
+                 onclick="openDialog(${i})"
+                 tabindex="0">
+        </div>
+    `;
 }
+
+function htmlRender() {
+    let html = '';
+
+    for (let i = 0; i < images.length; i++) {
+        html += getImageTemplate(i);
+    }
+
+    gallery.innerHTML = html;
+}
+
 
 function openDialog(i) {
     currentIndex = i;
     popupImg.src = images[i].src;
     popupImg.alt = images[i].alt;
     popup.showModal();
+    document.body.classList.add('no-scroll');
     showAltText();
     showCountPositionImg();
+}
+
+// function close popup with x
+
+function closeDialog() {
+    document.getElementById('imagePopup').close();
+    document.body.classList.remove('no-scroll');
 }
 
 function handleKeyPress(event, index) {
@@ -151,10 +168,5 @@ function handleKeyPress(event, index) {
     }
 }
 
-// start htmlrender function on load
 
-window.onload = function () {
-    htmlrender();
-    closeBtn.onclick = closeDialog;
-};
 
