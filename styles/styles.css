@@ -125,6 +125,11 @@ h1 strong {
     box-sizing: border-box;
 }
 
+.footercontainer {
+    display: flex;
+    align-items: center;
+}
+
 
 @media (max-width: 600px) {
     h1 {
