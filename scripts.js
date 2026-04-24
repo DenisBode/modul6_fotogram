@@ -4,7 +4,7 @@ let popup;
 
 // render function
 
-const images = [
+const IMAGES = [
     {
         src: './img/aperol_spritz.webp',
         alt: 'Aperol Spritz'
@@ -65,12 +65,12 @@ function init() {
 function nextImage() {
     currentIndex = currentIndex + 1;
 
-    if (currentIndex >= images.length) {
+    if (currentIndex >= IMAGES.length) {
         currentIndex = 0;
     }
 
-    popupImg.src = images[currentIndex].src;
-    popupImg.alt = images[currentIndex].alt;
+    popupImg.src = IMAGES[currentIndex].src;
+    popupImg.alt = IMAGES[currentIndex].alt;
 
     showAltText();
     showCountPositionImg();
@@ -80,11 +80,11 @@ function prevImage() {
     currentIndex = currentIndex - 1;
 
     if (currentIndex < 0) {
-        currentIndex = images.length - 1;
+        currentIndex = IMAGES.length - 1;
     }
 
-    popupImg.src = images[currentIndex].src;
-    popupImg.alt = images[currentIndex].alt;
+    popupImg.src = IMAGES[currentIndex].src;
+    popupImg.alt = IMAGES[currentIndex].alt;
     showAltText();
     showCountPositionImg();
 };
@@ -101,8 +101,6 @@ function showAltText() {
     output.innerHTML = altText;
 }
 
-
-
 //popup close with click outside popup
 
 function handleDialogClick(event) {
@@ -115,7 +113,7 @@ function handleDialogClick(event) {
 
 function showCountPositionImg() {
     let actualcount = currentIndex + 1;
-    let counting = images.length;
+    let counting = IMAGES.length;
     let output = actualcount + " / " + counting;
 
     document.getElementById('indexImages').innerHTML = output;
@@ -126,9 +124,10 @@ function showCountPositionImg() {
 function getImageTemplate(i) {
     return `
         <div class="img-box">
-            <img src="${images[i].src}" 
-                 alt="${images[i].alt}"
+            <img src="${IMAGES[i].src}" 
+                 alt="${IMAGES[i].alt}"
                  onclick="openDialog(${i})"
+                 onkeydown="handleKeyPress(event, ${i})"
                  tabindex="0">
         </div>
     `;
@@ -137,7 +136,7 @@ function getImageTemplate(i) {
 function htmlRender() {
     let html = '';
 
-    for (let i = 0; i < images.length; i++) {
+    for (let i = 0; i < IMAGES.length; i++) {
         html += getImageTemplate(i);
     }
 
@@ -147,8 +146,8 @@ function htmlRender() {
 
 function openDialog(i) {
     currentIndex = i;
-    popupImg.src = images[i].src;
-    popupImg.alt = images[i].alt;
+    popupImg.src = IMAGES[i].src;
+    popupImg.alt = IMAGES[i].alt;
     popup.showModal();
     document.body.classList.add('no-scroll');
     showAltText();
