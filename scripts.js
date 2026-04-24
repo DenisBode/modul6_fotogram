@@ -47,35 +47,7 @@ let currentIndex = 0;
 
 const gallery = document.getElementById('gallery');
 const popup = document.getElementById('imagePopup');
-const popupImg = document.getElementById('popupImg');
-
-function render() {
-    console.log("Function Render started");
-
-    for (let i = 0; i < images.length; i++) {
-        let img = document.createElement('img');
-        img.src = images[i].src;
-        img.alt = images[i].alt;
-
-        console.log(images[i]);
-
-        img.onclick = function () {
-            console.count("Images clicked:");
-
-            currentIndex = i;
-            popupImg.src = images[i].src;
-            popupImg.alt = images[i].alt;
-            popup.showModal();
-            showAltText();
-            // showCountImg();
-            showCountPositionImg();
-        };
-
-        gallery.appendChild(img);
-    }
-}
-
-render();
+const popupImg = document.getElementById('popupImg')
 
 // function next <-> preview
 
@@ -122,8 +94,6 @@ function showAltText() {
 
 // function close popup with x
 
-document.getElementById('closeBtn').onclick = closeDialog;
-
 function closeDialog() {
     console.info("Clicked on x Btn in PopUp");
     document.getElementById('imagePopup').close();
@@ -149,3 +119,47 @@ function showCountPositionImg() {
 
     document.getElementById('indexImages').innerHTML = output;
 }
+
+//new render function to render on time in html
+
+function htmlrender() {
+    console.log("Function htmlRender started");
+
+    let container = document.getElementById('gallery');
+    let html = '';
+    for (let i = 0; i < images.length; i++) {
+        html += `
+    <div class="img-box">
+        <img src="${images[i].src}" 
+             alt="${images[i].alt}"
+             onclick="openDialog(${i})"
+             onkeydown="handleKeyPress(event, ${i})"
+             tabindex="0">
+    </div>
+`;
+    }
+    container.innerHTML = html;
+}
+
+function openDialog(i) {
+    currentIndex = i;
+    popupImg.src = images[i].src;
+    popupImg.alt = images[i].alt;
+    popup.showModal();
+    showAltText();
+    showCountPositionImg();
+}
+
+function handleKeyPress(event, index) {
+    if (event.key === 'Enter' || event.key === ' ') {
+        openDialog(index);
+    }
+}
+
+// start htmlrender function on load
+
+window.onload = function () {
+    htmlrender();
+    closeBtn.onclick = closeDialog;
+};
+
