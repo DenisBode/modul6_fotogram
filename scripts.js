@@ -50,6 +50,8 @@ const popup = document.getElementById('imagePopup');
 const popupImg = document.getElementById('popupImg');
 
 function render() {
+    console.log("Function Render started");
+
     for (let i = 0; i < images.length; i++) {
         let img = document.createElement('img');
         img.src = images[i].src;
@@ -58,6 +60,8 @@ function render() {
         console.log(images[i]);
 
         img.onclick = function () {
+            console.count("Images clicked:");
+
             currentIndex = i;
             popupImg.src = images[i].src;
             popupImg.alt = images[i].alt;
@@ -76,6 +80,7 @@ render();
 // function next <-> preview
 
 document.getElementById('nextBtn').onclick = function () {
+
     currentIndex = currentIndex + 1;
 
     if (currentIndex >= images.length) {
@@ -120,6 +125,7 @@ function showAltText() {
 document.getElementById('closeBtn').onclick = closeDialog;
 
 function closeDialog() {
+    console.info("Clicked on x Btn in PopUp");
     document.getElementById('imagePopup').close();
 }
 
@@ -127,18 +133,10 @@ function closeDialog() {
 
 popup.addEventListener('click', function (event) {
     if (event.target === popup) {
+        console.info("Clicked outside Popup");
         popup.close();
     }
 });
-
-// count images in array
-
-// function showCountImg() {
-//     let count = images.length;
-//     console.log("Anzahl: ", count);
-
-//     document.getElementById('indexImages').innerHTML = count;
-// }
 
 // count wich image in counted array
 
@@ -150,9 +148,4 @@ function showCountPositionImg() {
     console.log("Position: ", output);
 
     document.getElementById('indexImages').innerHTML = output;
-
-}
-
-function showCocktailDetails() {
-    let details = '';
 }
