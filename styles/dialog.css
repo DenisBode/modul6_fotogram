@@ -131,7 +131,7 @@ dialog {
     height: 32px;
     padding-left: 16px;
     background-color: rgb(49, 53, 70, 0.25);
-    color: white;
+    color: var(--text-color);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 
